@@ -1,0 +1,22 @@
+sudo su yum install docker
+yum install docker
+docker --version
+systemctl start docker
+systemctl status docker
+
+vi dockerfile
+FROM centos:7
+RUN yum install httpd -y
+COPY index.html ./var/www/html
+ENTRYPOINT ["/usr/sbin/httpd"]
+CMD ["-D", "FOREGROUND"]
+
+docker build -t [IMAGE-NAME]:[VERSION]
+docker login
+docker tag SOURCE-IMAGE[:TAG] TARGET-IMAGE[:TAG]
+docker push [OPTIONS] NAME[:TAG]
+docker pull [OPTIONS] NAME[:TAG]
+docker images
+docker run -itd -p 8080:80 [image name ]:[tag]
+
+
